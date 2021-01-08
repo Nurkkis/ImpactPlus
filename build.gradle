@@ -33,7 +33,7 @@ minecraft {
 	version = project.forgeVersion
 	runDir = 'run'
 	mappings = project.mcpVersion
-	coreMod = 'com.gamesense.client.GameSenseMod'
+	coreMod = 'me.finz0.osiris.mixin.OsirisMixinLoader'
 	makeObfSourceJar = false
 }
 
@@ -67,6 +67,7 @@ dependencies {
 	compile "com.github.ZeroMemes:Alpine:1.5"
 	compile group: 'net.jodah', name: 'typetools', version: '0.5.0'
 	compile group: "com.googlecode.json-simple", name: "json-simple", version: "1.1.1"
+	compile group: 'club.minnced', name: 'java-discord-rpc', version: '2.0.1'
 }
 
 processResources {
@@ -97,6 +98,7 @@ shadowJar {
 		include(dependency('com.github.ZeroMemes:Alpine'))
 		include(dependency('net.jodah:typetools'))
 		include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
+		include(dependency('club.minnced:java-discord-rpc:2.0.1'))
 	}
 	exclude 'dummyThing'
 	exclude 'LICENSE.txt'
@@ -105,7 +107,7 @@ shadowJar {
 
 mixin {
 	defaultObfuscationEnv searge
-	add sourceSets.main, 'mixins.gamesense.refmap.json'
+	add sourceSets.main, 'mixins.osiris.refmap.json'
 }
 
 reobf {
@@ -118,13 +120,13 @@ reobf {
 jar {
 	manifest {
 		attributes(
-				'MixinConfigs': 'mixins.gamesense.json',
+				'MixinConfigs': 'mixins.osiris.json',
 				'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
 				'TweakOrder': 0,
 				'FMLCorePluginContainsFMLMod': 'true',
-				'FMLCorePlugin': 'com.gamesense.client.GameSenseMod',
+				'FMLCorePlugin': 'me.finz0.osiris.mixin.OsirisMixinLoader',
 				'ForceLoadAsMod': 'true',
-				'FMLAT': 'gamesense_at.cfg'
+				'FMLAT': 'osiris_at.cfg'
 		)
 	}
 }

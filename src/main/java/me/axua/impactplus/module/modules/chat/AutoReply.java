@@ -11,10 +11,10 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent;
 public class AutoReply extends Module {
   public AutoReply() {
     super("AutoReply", Module.Category.CHAT, "Reply to whispers");
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           if (event.getMessage().getUnformattedText().contains("whispers: ") && !event.getMessage().getUnformattedText().startsWith(mc.player.getName()))
             mc.player.sendChatMessage("/r " + reply); 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   private static String reply = "fuck off";

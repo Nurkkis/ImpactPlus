@@ -78,11 +78,11 @@ public class AutoBuilder extends Module {
     this.PitchHead = 0.0F;
     this.SentPacket = false;
     this.l_Array = new ArrayList<>();
-    this.OnRender = new Listener(p_Event -> {
+    this.OnRender = new Listener<>(p_Event -> {
           if (p_Event.getEntityLivingBase() == mc.player)
             p_Event.SetHeadPitch((this.PitchHead == -420.0F) ? mc.player.rotationPitch : this.PitchHead); 
-        }new java.util.function.Predicate[0]);
-    this.OnPlayerUpdate = new Listener(p_Event -> {
+        });
+    this.OnPlayerUpdate = new Listener<>(p_Event -> {
           if (p_Event.getEra() != ImpactPlusEvent.Era.PRE)
             return; 
           if (!this.timer.passed(this.Delay.getValDouble() * 1000.0D))

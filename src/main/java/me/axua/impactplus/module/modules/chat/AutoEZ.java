@@ -28,7 +28,7 @@ public class AutoEZ extends Module {
     super("AutoEZ", Module.Category.CHAT, "Sends a message in chat when you kill someone");
     this.targetedPlayers = null;
     this.index = -1;
-    this.sendListener = new Listener(event -> {
+    this.sendListener = new Listener<>(event -> {
           if (mc.player != null) {
             if (this.targetedPlayers == null)
               this.targetedPlayers = new ConcurrentHashMap<>(); 
@@ -41,8 +41,8 @@ public class AutoEZ extends Module {
               } 
             } 
           } 
-        }new java.util.function.Predicate[0]);
-    this.livingDeathEventListener = new Listener(event -> {
+        });
+    this.livingDeathEventListener = new Listener<>(event -> {
           if (mc.player != null) {
             if (this.targetedPlayers == null)
               this.targetedPlayers = new ConcurrentHashMap<>(); 
@@ -56,7 +56,7 @@ public class AutoEZ extends Module {
               } 
             } 
           } 
-        }new java.util.function.Predicate[0]);
+        });
     INSTANCE = this;
   }
   

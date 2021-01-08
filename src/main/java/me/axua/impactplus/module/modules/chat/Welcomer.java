@@ -22,20 +22,20 @@ public class Welcomer extends Module {
   
   public Welcomer() {
     super("Welcomer", Module.Category.CHAT, "Sends a message when someone joins the server");
-    this.listener1 = new Listener(event -> {
+    this.listener1 = new Listener<>(event -> {
           if (this.publicS.getValBoolean()) {
             mc.player.sendChatMessage(event.getName() + " joined the game");
           } else {
             Command.sendClientMessage(event.getName() + " joined the game");
           } 
-        }new java.util.function.Predicate[0]);
-    this.listener2 = new Listener(event -> {
+        });
+    this.listener2 = new Listener<>(event -> {
           if (this.publicS.getValBoolean()) {
             mc.player.sendChatMessage(event.getName() + " left the game");
           } else {
             Command.sendClientMessage(event.getName() + " left the game");
           } 
-        }new java.util.function.Predicate[0]);
+        });
     (ImpactPlus.getInstance()).settingsManager.rSetting(this.publicS = new Setting("Public", this, false, "WelcomerPublicMode"));
   }
   

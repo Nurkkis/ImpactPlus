@@ -20,7 +20,7 @@ public class ChatSuffix extends Module {
   
   public ChatSuffix() {
     super("ChatSuffix", Module.Category.CHAT, "Adds a suffix to your messages");
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           if (event.getPacket() instanceof CPacketChatMessage) {
             if (((CPacketChatMessage)event.getPacket()).getMessage().startsWith("/") || ((CPacketChatMessage)event.getPacket()).getMessage().startsWith(Command.getPrefix()) || ((CPacketChatMessage)event.getPacket()).getMessage().startsWith(".") || ((CPacketChatMessage)event.getPacket()).getMessage().startsWith("!") || ((CPacketChatMessage)event.getPacket()).getMessage().startsWith("#"))
               return; 
@@ -37,10 +37,10 @@ public class ChatSuffix extends Module {
               if (this.suffixmode.getValString().equalsIgnoreCase("Salhack"))
                 suffix = " ᵟᵃᴸᴴᵃᶜᴷ"; 
               if (this.suffixmode.getValString().equalsIgnoreCase("Impact+"))
-                suffix = " ɪ�?ᴘᴀᴄᴛ₊"; 
+                suffix = " ɪ�?ᴘᴀᴄᴛ₊"; 
             } 
             if (this.suffixmode.getValString().equalsIgnoreCase("Meme Suffix"))
-              suffix = " » ɴᴇʙᴜʟᴀ ᵟᵃᴸᴴᵃᶜᴷ » ɪ�?ᴀᴘᴄᴛ₊ » ʌгᴇѕ+ « ᴋᴀ�?ɪ ʙʟᴜᴇ �?ɴ ᴛ�?ᴘ » ˢ�?�ᵒʷ�?? �?εᎮнᗩεѕƭυѕ » ʙᴀᴄᴋᴅ�?�?ʀᴇᴅ | �?ᴇ�?ᴡ » ᴜɴɪᴄ�?ʀɴɢ�?ᴅ.ɢɢ ~~ ꜱᴇᴘᴘᴜᴋᴜ | ʜᴜᴢᴜɴɪɢʀᴇᴇɴ.ɢɢ™ » ʙᴀᴄᴋᴄʟɪᴇɴᴛ™ » ɴ�?ᴜ ʟᴇᴀᴋ ☯ �?? ғ�?ʀɢᴇʀᴀᴛ ♡ | ӨBΛMΛ ᄃᄂIΣПƬ - ᴇʟᴇ�?ᴇɴᴛᴀʀꜱ.ᴄ�?�? 》�?ꜱɪʀɪꜱ | WÔÔK�?Ê ÇLîëÑT™ {ʀᴀɪ�?ɴᴋᴇᴋ} ッ Ｒ�?�?Ｔ ｜ ʀᴜʜᴀ�?ᴀ | ᴅ�?ᴛғᴀɢ.ɪɴ™ >> ᴀʀɪѕᴛ�?ɪѕ ʳᵘˢʰᵉʳʰᵃᶜ�?"; 
+              suffix = " » ɴᴇʙᴜʟᴀ ᵟᵃᴸᴴᵃᶜᴷ » ɪ�?ᴀᴘᴄᴛ₊ » ʌгᴇѕ+ « ᴋᴀ�?ɪ ʙʟᴜᴇ �?ɴ ᴛ�?ᴘ » ˢ�?�ᵒʷ�?? �?εᎮнᗩεѕƭυѕ » ʙᴀᴄᴋᴅ�?�?ʀᴇᴅ | �?ᴇ�?ᴡ » ᴜɴɪᴄ�?ʀɴɢ�?ᴅ.ɢɢ ~~ ꜱᴇᴘᴘᴜᴋᴜ | ʜᴜᴢᴜɴɪɢʀᴇᴇɴ.ɢɢ™ » ʙᴀᴄᴋᴄʟɪᴇɴᴛ™ » ɴ�?ᴜ ʟᴇᴀᴋ ☯ �?? ғ�?ʀɢᴇʀᴀᴛ ♡ | ӨBΛMΛ ᄃᄂIΣПƬ - ᴇʟᴇ�?ᴇɴᴛᴀʀꜱ.ᴄ�?�? 》�?ꜱɪʀɪꜱ | WÔÔK�?Ê ÇLîëÑT™ {ʀᴀɪ�?ɴᴋᴇᴋ} ッ Ｒ�?�?Ｔ ｜ ʀᴜʜᴀ�?ᴀ | ᴅ�?ᴛғᴀɢ.ɪɴ™ >> ᴀʀɪѕᴛ�?ɪѕ ʳᵘˢʰᵉʳʰᵃᶜ�?"; 
             s = old + suffix;
             int longs = s.length();
             int ok = 0;
@@ -49,7 +49,7 @@ public class ChatSuffix extends Module {
             s = s.substring(0, s.length() - ok);
             ((CPacketChatMessage)event.getPacket()).message = s;
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {

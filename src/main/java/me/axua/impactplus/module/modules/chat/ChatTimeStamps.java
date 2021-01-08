@@ -26,7 +26,7 @@ public class ChatTimeStamps extends Module {
   
   public ChatTimeStamps() {
     super("ChatTimeStamps", Module.Category.CHAT);
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           String decoLeft = this.decoration.getValString().equalsIgnoreCase(" ") ? "" : this.decoration.getValString().split(" ")[0];
           String decoRight = this.decoration.getValString().equalsIgnoreCase(" ") ? "" : this.decoration.getValString().split(" ")[1];
           decoRight = decoRight + " ";
@@ -34,7 +34,7 @@ public class ChatTimeStamps extends Module {
           String date = (new SimpleDateFormat(dateFormat)).format(new Date());
           TextComponentString time = new TextComponentString(ChatFormatting.getByName(this.color.getValString()) + decoLeft + date + decoRight + ChatFormatting.RESET);
           event.setMessage(time.appendSibling(event.getMessage()));
-        }new java.util.function.Predicate[0]);
+        });
     ArrayList<String> formats = new ArrayList<>();
     formats.add("H24:mm");
     formats.add("H12:mm");

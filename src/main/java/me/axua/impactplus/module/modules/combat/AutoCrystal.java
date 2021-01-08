@@ -135,14 +135,14 @@ public class AutoCrystal extends Module {
     this.isAttacking = false;
     this.oldSlot = -1;
     this.isActive = false;
-    this.packetSendListener = new Listener(event -> {
+    this.packetSendListener = new Listener<>(event -> {
           Packet packet = event.getPacket();
           if (packet instanceof CPacketPlayer && this.spoofRotations.getValBoolean() && isSpoofingAngles) {
             ((CPacketPlayer)packet).yaw = (float)yaw;
             ((CPacketPlayer)packet).pitch = (float)pitch;
           } 
-        }new java.util.function.Predicate[0]);
-    this.packetReceiveListener = new Listener(event -> {
+        });
+    this.packetReceiveListener = new Listener<>(event -> {
           if (event.getPacket() instanceof SPacketSoundEffect && this.nodesync.getValBoolean()) {
             SPacketSoundEffect packet = (SPacketSoundEffect)event.getPacket();
             if (packet.getCategory() == SoundCategory.BLOCKS && packet.getSound() == SoundEvents.ENTITY_GENERIC_EXPLODE)
@@ -151,7 +151,7 @@ public class AutoCrystal extends Module {
                   e.setDead(); 
               }  
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {
