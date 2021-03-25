@@ -14,7 +14,7 @@ public class AntiForceLook extends Module {
   
   public AntiForceLook() {
     super("AntiForceLook", Module.Category.PLAYER, "Stops server packets from turning your head");
-    this.receiveListener = new Listener(event -> {
+    this.receiveListener = new Listener<>(event -> {
           if (mc.player == null)
             return; 
           if (event.getPacket() instanceof SPacketPlayerPosLook) {
@@ -22,6 +22,6 @@ public class AntiForceLook extends Module {
             packet.yaw = mc.player.rotationYaw;
             packet.pitch = mc.player.rotationPitch;
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
 }

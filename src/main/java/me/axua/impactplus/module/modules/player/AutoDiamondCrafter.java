@@ -32,12 +32,12 @@ public class AutoDiamondCrafter extends Module {
             public void run() {
               AutoDiamondCrafter.mc.playerController.windowClick(0, 1, 0, ClickType.PICKUP, (EntityPlayer)AutoDiamondCrafter.mc.player);
             }
-          }100L);
+          }, 100L);
       m_Timerrr.schedule(new TimerTask() {
-            public void run() {
-              AutoDiamondCrafter.mc.playerController.windowClick(0, 0, 0, ClickType.QUICK_MOVE, (EntityPlayer)AutoDiamondCrafter.mc.player);
-            }
-          }200L);
+          public void run() {
+              AutoDiamondCrafter.mc.playerController.windowClick(0, 0, 0, ClickType.QUICK_MOVE, (EntityPlayer) AutoDiamondCrafter.mc.player);
+          }
+      }, 200L);
       m_Timerrr.schedule(new TimerTask() {
             public void run() {
               Timer mTimer = new Timer();
@@ -54,10 +54,10 @@ public class AutoDiamondCrafter extends Module {
                           for (int y = 1; y < 65; y++)
                             AutoDiamondCrafter.mc.playerController.windowClick(0, finalI, 0, ClickType.THROW, (EntityPlayer)AutoDiamondCrafter.mc.player);  
                       }
-                    }delay2);
+                    },delay2);
               } 
             }
-          }300L);
+          },300L);
     } 
     disable();
   }

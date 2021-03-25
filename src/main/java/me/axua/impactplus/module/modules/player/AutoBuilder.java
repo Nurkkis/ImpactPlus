@@ -301,7 +301,7 @@ public class AutoBuilder extends Module {
             mc.player.prevOnGround = mc.player.onGround;
             mc.player.autoJumpEnabled = mc.player.mc.gameSettings.autoJump;
           } 
-        }new java.util.function.Predicate[0]);
+        });
     this.OnRenderEvent = new Listener(p_Event -> {
           Iterator<BlockPos> l_Itr = this.l_Array.iterator();
           while (l_Itr.hasNext()) {
@@ -331,7 +331,7 @@ public class AutoBuilder extends Module {
               GlStateManager.popMatrix();
             } 
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {
