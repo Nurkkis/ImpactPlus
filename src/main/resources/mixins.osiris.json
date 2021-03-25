@@ -1,11 +1,11 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "me.finz0.osiris.mixin.mixins",
+  "package": "me.axua.impactplus.mixin.mixins",
   "refmap": "mixins.osiris.refmap.json",
   "mixins": [
     "MixinAbstractClientPlayer",
-    "MixingBlock",
+    "MixinBlock",
     "MixinBlockSoulSand",
     "MixinEntity",
     "MixinEntityPlayer",
