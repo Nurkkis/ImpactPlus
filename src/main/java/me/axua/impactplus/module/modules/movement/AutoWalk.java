@@ -11,12 +11,12 @@ public class AutoWalk extends Module {
   }
   
   public void onUpdate() {
-    if (!(Minecraft.getMinecraft()).gameSettings.keyBindForward.isPressed())
-      (Minecraft.getMinecraft()).gameSettings.keyBindForward.pressed = true; 
-    (Minecraft.getMinecraft()).gameSettings.keyBindForward.pressed = true;
+    if (!(Minecraft.getMinecraft()).gameSettings.keyBindForward.isPressed());
+      /*(Minecraft.getMinecraft()).gameSettings.keyBindForward.pressed = true;
+    (Minecraft.getMinecraft()).gameSettings.keyBindForward.pressed = true;*/
   }
   
-  public void onDisable() {
+  /*public void onDisable() {
     (Minecraft.getMinecraft()).gameSettings.keyBindForward.pressed = false;
-  }
+  }*/
 }

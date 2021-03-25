@@ -44,7 +44,7 @@ public class ElytraFly2b2t extends Module {
   
   public ElytraFly2b2t() {
     super("ElytraFly2b2t", Module.Category.MOVEMENT);
-    this.sendListener = new Listener(event -> {
+    this.sendListener = new Listener<>(event -> {
           if (mc.player == null)
             return; 
           if (event.getPacket() instanceof CPacketPlayer) {
@@ -59,16 +59,16 @@ public class ElytraFly2b2t extends Module {
             if (packet.getAction() == CPacketEntityAction.Action.START_FALL_FLYING)
               this.hoverTarget = mc.player.posY + 0.35D; 
           } 
-        }new java.util.function.Predicate[0]);
-    this.recvListener = new Listener(event -> {
-          if (mc.player == null || !mc.player.isElytraFlying())
-            return; 
-          if (event.getPacket() instanceof SPacketPlayerPosLook) {
-            SPacketPlayerPosLook packet = (SPacketPlayerPosLook)event.getPacket();
+        });
+    this.recvListener = new Listener<>(event -> {
+        if (mc.player == null || !mc.player.isElytraFlying())
+            return;
+        if (event.getPacket() instanceof SPacketPlayerPosLook) {
+            SPacketPlayerPosLook packet = (SPacketPlayerPosLook) event.getPacket();
             packet.pitch = mc.player.rotationPitch;
-          } 
-        }new java.util.function.Predicate[0]);
-    this.playerTravelListener = new Listener(event -> {
+        }
+    });
+    this.playerTravelListener = new Listener<>(event -> {
           if (mc.player == null)
             return; 
           if (!mc.player.isElytraFlying()) {
@@ -146,7 +146,7 @@ public class ElytraFly2b2t extends Module {
           if (moveUp || moveDown)
             this.hoverTarget = mc.player.posY; 
           event.cancel();
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {
