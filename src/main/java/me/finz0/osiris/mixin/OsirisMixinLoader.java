@@ -14,7 +14,7 @@ public class OsirisMixinLoader implements IFMLLoadingPlugin {
   public OsirisMixinLoader() {
     ImpactPlus.log.info("ImpactPlus mixins initialized");
     MixinBootstrap.init();
-    Mixins.addConfiguration("mixins.impactplus.json");
+    Mixins.addConfiguration("mixins.osiris.json");
     MixinEnvironment.getDefaultEnvironment().setObfuscationContext("searge");
     ImpactPlus.log.info(MixinEnvironment.getDefaultEnvironment().getObfuscationContext());
   }
