@@ -19,7 +19,7 @@ public class MiddleClickFriends extends Module {
   
   public MiddleClickFriends() {
     super("MCF", Module.Category.MISC, "Middle click players to add / remove them as a friend");
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           if (mc.objectMouseOver.typeOfHit.equals(RayTraceResult.Type.ENTITY) && mc.objectMouseOver.entityHit instanceof net.minecraft.entity.player.EntityPlayer && Mouse.getEventButton() == 2)
             if (Friends.isFriend(mc.objectMouseOver.entityHit.getName())) {
               (ImpactPlus.getInstance()).friends.delFriend(mc.objectMouseOver.entityHit.getName());
@@ -28,7 +28,7 @@ public class MiddleClickFriends extends Module {
               (ImpactPlus.getInstance()).friends.addFriend(mc.objectMouseOver.entityHit.getName());
               Command.sendClientMessage(ChatFormatting.GREEN + "Added " + mc.objectMouseOver.entityHit.getName() + " to friends list");
             }  
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void onEnable() {

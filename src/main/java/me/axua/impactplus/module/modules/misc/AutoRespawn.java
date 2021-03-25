@@ -18,7 +18,7 @@ public class AutoRespawn extends Module {
   
   public AutoRespawn() {
     super("AutoRespawn", Module.Category.MISC, "Respawn when you die");
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           if (event.getScreen() instanceof net.minecraft.client.gui.GuiGameOver) {
             if (this.coords.getValBoolean())
               Command.sendClientMessage(String.format("You died at x%d y%d z%d", new Object[] { Integer.valueOf((int)mc.player.posX), Integer.valueOf((int)mc.player.posY), Integer.valueOf((int)mc.player.posZ) })); 
@@ -26,7 +26,7 @@ public class AutoRespawn extends Module {
               mc.player.respawnPlayer(); 
             mc.displayGuiScreen(null);
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {

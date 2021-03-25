@@ -48,7 +48,7 @@ public class TotemPopCounter extends Module {
     super("TotemPopCounter", Module.Category.MISC, "Fixed!");
     this.playerList = new HashMap<>();
     this.isDead = false;
-    this.listListener = new Listener(event -> {
+    this.listListener = new Listener<>(event -> {
           if (this.playerList == null)
             this.playerList = new HashMap<>(); 
           if (this.playerList.get(event.getEntity().getName()) == null) {
@@ -59,8 +59,8 @@ public class TotemPopCounter extends Module {
             this.playerList.put(event.getEntity().getName(), Integer.valueOf(++popCounter));
             sendMessage(formatName2(event.getEntity().getName()) + " popped " + formatNumber(popCounter) + " totems" + ending());
           } 
-        }new java.util.function.Predicate[0]);
-    this.popListener = new Listener(event -> {
+        });
+    this.popListener = new Listener<>(event -> {
           if (mc.player == null)
             return; 
           if (event.getPacket() instanceof SPacketEntityStatus) {
@@ -71,7 +71,7 @@ public class TotemPopCounter extends Module {
                 ImpactPlus.EVENT_BUS.post(new EntityUseTotemEvent(entity)); 
             } 
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {
