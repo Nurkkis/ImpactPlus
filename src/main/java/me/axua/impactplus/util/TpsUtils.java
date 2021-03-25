@@ -41,10 +41,10 @@ public class TpsUtils {
   }
   
   public TpsUtils() {
-    this.listener = new Listener(event -> {
+    this.listener = new Listener<>(event -> {
           if (event.getPacket() instanceof net.minecraft.network.play.server.SPacketTimeUpdate)
             onTimeUpdate(); 
-        }new java.util.function.Predicate[0]);
+        });
     this.nextIndex = 0;
     this.timeLastTimeUpdate = -1L;
     Arrays.fill(tickRates, 0.0F);

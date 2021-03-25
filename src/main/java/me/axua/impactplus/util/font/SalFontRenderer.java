@@ -2,9 +2,7 @@
 
 package me.axua.impactplus.util.font;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,12 +15,11 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 
 public class SalFontRenderer {
-  private static final Pattern COLOR_CODE_PATTERN = Pattern.compile("§[0123456789abcdefklmnor]");
+  private static final Pattern COLOR_CODE_PATTERN = Pattern.compile("\u00a7[0123456789abcdefklmnor]");
   
   public final int FONT_HEIGHT = 9;
   
@@ -122,7 +119,7 @@ public class SalFontRenderer {
     for (String s : parts) {
       for (String s2 : s.split("\n")) {
         for (String s3 : s2.split("\r")) {
-          this.unicodeFont.drawString(x, y, s3, new Color(currentColor));
+          this.unicodeFont.drawString(x, y, s3, new org.newdawn.slick.Color(currentColor));
           x += this.unicodeFont.getWidth(s3);
           index += s3.length();
           if (index < characters.length && characters[index] == '\r') {
@@ -138,7 +135,7 @@ public class SalFontRenderer {
       } 
       if (index < characters.length) {
         char colorCode = characters[index];
-        if (colorCode == '§') {
+        if (colorCode == '\u00a7') {
           char colorChar = characters[index + 1];
           int codeIndex = "0123456789abcdef".indexOf(colorChar);
           if (codeIndex < 0) {

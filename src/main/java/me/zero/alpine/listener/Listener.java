@@ -21,7 +21,7 @@ public final class Listener<T> implements EventHook<T> {
   public Listener(EventHook<T> hook, byte priority, Predicate<T>... filters) {
     this.hook = hook;
     this.priority = priority;
-    this.target = TypeResolver.resolveRawArgument(EventHook.class, hook.getClass());
+    this.target = (Class<T>) TypeResolver.resolveRawArgument(EventHook.class, hook.getClass());
     this.filters = filters;
   }
   

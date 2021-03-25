@@ -19,7 +19,7 @@ public class EventManager implements EventBus {
   private final List<EventBus> ATTACHED_BUSES = new ArrayList<>();
   
   public void subscribe(Object object) {
-    List<Listener> listeners = this.SUBSCRIPTION_CACHE.computeIfAbsent(object, o -> (List)Arrays.<Field>stream(o.getClass().getDeclaredFields()).filter(EventManager::isValidField).map(()).filter(Objects::nonNull).collect(Collectors.toList()));
+    List<Listener> listeners = this.SUBSCRIPTION_CACHE.computeIfAbsent(object, o -> (List)Arrays.<Field>stream(o.getClass().getDeclaredFields()).filter(EventManager::isValidField).filter(Objects::nonNull).collect(Collectors.toList()));
     listeners.forEach(this::subscribe);
     if (!this.ATTACHED_BUSES.isEmpty())
       this.ATTACHED_BUSES.forEach(bus -> bus.subscribe(object)); 

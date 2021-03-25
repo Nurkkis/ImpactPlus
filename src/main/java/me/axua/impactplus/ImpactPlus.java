@@ -35,6 +35,8 @@ public class ImpactPlus {
   public static final String MODVER = "v2.4";
   
   public static final String FORGENAME = "Impact+";
+
+  // 697888066672656404
   
   public static final Logger log = LogManager.getLogger(MODNAME);
   

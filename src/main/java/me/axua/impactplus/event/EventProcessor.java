@@ -84,7 +84,7 @@ public class EventProcessor {
   @EventHandler
   private Listener<PacketEvent.Receive> receiveListener;
   
-  private final Map<String, String> uuidNameCache;
+  private Map<String, String> uuidNameCache;
   
   public int getRgb() {
     return this.rgb;
@@ -264,21 +264,21 @@ public class EventProcessor {
   }
   
   public EventProcessor() {
-    this.receiveListener = new Listener(event -> {
+    this.receiveListener = new Listener<>(event -> {
           if (event.getPacket() instanceof SPacketPlayerListItem) {
             SPacketPlayerListItem packet = (SPacketPlayerListItem)event.getPacket();
             if (packet.getAction() == SPacketPlayerListItem.Action.ADD_PLAYER)
               for (SPacketPlayerListItem.AddPlayerData playerData : packet.getEntries()) {
                 if (playerData.getProfile().getId() != this.mc.session.getProfile().getId())
-                  (new Thread(())).start(); 
+                  (new Thread()).start();
               }  
             if (packet.getAction() == SPacketPlayerListItem.Action.REMOVE_PLAYER)
               for (SPacketPlayerListItem.AddPlayerData playerData : packet.getEntries()) {
                 if (playerData.getProfile().getId() != this.mc.session.getProfile().getId())
-                  (new Thread(())).start(); 
+                  (new Thread()).start();
               }  
           } 
-        }new java.util.function.Predicate[0]);
+        });
     this.uuidNameCache = Maps.newConcurrentMap();
     INSTANCE = this;
   }

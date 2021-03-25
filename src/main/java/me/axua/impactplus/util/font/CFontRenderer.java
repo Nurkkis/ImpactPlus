@@ -102,7 +102,7 @@ public class CFontRenderer extends CFont {
       GL11.glBindTexture(3553, this.tex.getGlTextureId());
       for (int i = 0; i < size; i++) {
         char character = text.charAt(i);
-        if (character == '§' && i < size) {
+        if (character == '\u00a7' && i < size) {
           int colorIndex = 21;
           try {
             colorIndex = "0123456789abcdefklmnor".indexOf(text.charAt(i + 1));
@@ -183,7 +183,7 @@ public class CFontRenderer extends CFont {
     int size = text.length();
     for (int i = 0; i < size; i++) {
       char character = text.charAt(i);
-      if (character == '§' && i < size) {
+      if (character == '\u00a7' && i < size) {
         int colorIndex = "0123456789abcdefklmnor".indexOf(character);
         if (colorIndex < 16) {
           bold = false;
@@ -255,19 +255,19 @@ public class CFontRenderer extends CFont {
       for (String word : words) {
         for (int i = 0; i < (word.toCharArray()).length; i++) {
           char c = word.toCharArray()[i];
-          if (c == '§' && i < (word.toCharArray()).length - 1)
+          if (c == '\u00a7' && i < (word.toCharArray()).length - 1)
             lastColorCode = word.toCharArray()[i + 1]; 
         } 
         if (getStringWidth(currentWord + word + " ") < width) {
           currentWord = currentWord + word + " ";
         } else {
           finalWords.add(currentWord);
-          currentWord = "§" + lastColorCode + word + " ";
+          currentWord = "\u00a7" + lastColorCode + word + " ";
         } 
       } 
       if (currentWord.length() > 0)
         if (getStringWidth(currentWord) < width) {
-          finalWords.add("§" + lastColorCode + currentWord + " ");
+          finalWords.add("\u00a7" + lastColorCode + currentWord + " ");
           currentWord = "";
         } else {
           for (String s : formatString(currentWord, width))
@@ -286,13 +286,13 @@ public class CFontRenderer extends CFont {
     char[] chars = string.toCharArray();
     for (int i = 0; i < chars.length; i++) {
       char c = chars[i];
-      if (c == '§' && i < chars.length - 1)
+      if (c == '\u00a7' && i < chars.length - 1)
         lastColorCode = chars[i + 1]; 
       if (getStringWidth(currentWord + c) < width) {
         currentWord = currentWord + c;
       } else {
         finalWords.add(currentWord);
-        currentWord = "§" + lastColorCode + String.valueOf(c);
+        currentWord = "\u00a7" + lastColorCode + String.valueOf(c);
       } 
     } 
     if (currentWord.length() > 0)

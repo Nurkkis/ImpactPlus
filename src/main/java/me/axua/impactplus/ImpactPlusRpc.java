@@ -30,34 +30,40 @@ public class ImpactPlusRpc {
     presence.largeImageKey = "large";
     presence.largeImageText = "Impact+ v2.4";
     rpc.Discord_UpdatePresence(presence);
-    (new Thread(() -> {
-          while (!Thread.currentThread().isInterrupted()) {
-            try {
-              rpc.Discord_RunCallbacks();
-              details = "Version v2.4";
-              state = "";
-              if (mc.isIntegratedServerRunning()) {
-                state = "Playing Singleplayer";
-              } else if (mc.getCurrentServerData() != null) {
-                if (!(mc.getCurrentServerData()).serverIP.equals(""))
-                  state = "Playing " + (mc.getCurrentServerData()).serverIP; 
-              } else {
-                state = "Main Menu";
-              } 
-              if (!details.equals(presence.details) || !state.equals(presence.state))
-                presence.startTimestamp = System.currentTimeMillis() / 1000L; 
-              presence.details = details;
-              presence.state = state;
-              rpc.Discord_UpdatePresence(presence);
-            } catch (Exception e2) {
-              e2.printStackTrace();
-            } 
-            try {
-              Thread.sleep(5000L);
-            } catch (InterruptedException e3) {
-              e3.printStackTrace();
-            } 
-          } 
-        }"Discord-RPC-Callback-Handler")).start();
-  }
+    new Thread(() -> {
+        while (!Thread.currentThread().isInterrupted()) {
+          try {
+            rpc.Discord_RunCallbacks();
+            details = "Version v2.4";
+            state = "Playing Singleplayer";
+            if (mc.isIntegratedServerRunning()) {
+              state = "Playing Singleplayer";
+            } else if (mc.getCurrentServerData() != null) {
+              if (!mc.getCurrentServerData().serverIP.equals("")) {
+                state = "Playing " + mc.getCurrentServerData().serverIP;
+              }
+
+            } else {
+              state = "Main Menu";
+            }
+            if (!details.equals(presence.details) || !state.equals(presence.state)) {
+              presence.startTimestamp = System.currentTimeMillis() / 1000L;
+            }
+            presence.details = details;
+            presence.state = state;
+            rpc.Discord_UpdatePresence(presence);
+          } catch (Exception e2) {
+            e2.printStackTrace();
+          }
+          try {
+            Thread.sleep(5000L);
+          } catch (InterruptedException e3) {
+            e3.printStackTrace();
+          }
+        }
+        return;
+      }, "Discord-RPC-Callback-Handler").start();
+    }
 }
+
+

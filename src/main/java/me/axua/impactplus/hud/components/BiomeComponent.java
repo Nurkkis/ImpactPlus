@@ -15,7 +15,6 @@ import me.axua.impactplus.util.Rainbow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 
 public class BiomeComponent extends Panel {
@@ -42,7 +41,7 @@ public class BiomeComponent extends Panel {
     Minecraft mc = Minecraft.getMinecraft();
     BlockPos pos = mc.player.getPosition();
     Chunk chunk = mc.world.getChunk(pos);
-    Biome biome = chunk.getBiome(pos, mc.world.getBiomeProvider());
+    net.minecraft.world.biome.Biome biome = chunk.getBiome(pos, mc.world.getBiomeProvider());
     doStuff();
     ChatFormatting numbercf = null;
     if (this.mod.numbercolour.getValString().equalsIgnoreCase("None"))
@@ -99,7 +98,7 @@ public class BiomeComponent extends Panel {
     Minecraft mc = Minecraft.getMinecraft();
     BlockPos pos = mc.player.getPosition();
     Chunk chunk = mc.world.getChunk(pos);
-    Biome biome = chunk.getBiome(pos, mc.world.getBiomeProvider());
+    net.minecraft.world.biome.Biome biome = chunk.getBiome(pos, mc.world.getBiomeProvider());
     doStuff();
     ChatFormatting numbercf = null;
     if (this.mod.numbercolour.getValString().equalsIgnoreCase("None"))

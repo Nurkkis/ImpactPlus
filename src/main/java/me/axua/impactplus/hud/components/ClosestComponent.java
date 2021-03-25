@@ -63,7 +63,7 @@ public class ClosestComponent extends Panel {
     } else {
       this.c = new Color((int)this.mod.red.getValDouble(), (int)this.mod.green.getValDouble(), (int)this.mod.blue.getValDouble());
     } 
-    EntityPlayer l_Player = mc.world.loadedEntityList.stream().filter(p_Entity -> p_Entity instanceof EntityPlayer).filter(p_Entity -> (p_Entity != mc.player)).min(Comparator.comparing(p_Entity -> Float.valueOf(mc.player.getDistance(p_Entity)))).orElse(null);
+    EntityPlayer l_Player = (EntityPlayer) mc.world.loadedEntityList.stream().filter(p_Entity -> p_Entity instanceof EntityPlayer).filter(p_Entity -> (p_Entity != mc.player)).min(Comparator.comparing(p_Entity -> Float.valueOf(mc.player.getDistance(p_Entity)))).orElse(null);
     if (l_Player != null) {
       ChatFormatting numbercf = null;
       if (this.mod.numbercolour.getValString().equalsIgnoreCase("None"))
@@ -647,7 +647,7 @@ public class ClosestComponent extends Panel {
       } else {
         this.c = new Color((int)this.mod.red.getValDouble(), (int)this.mod.green.getValDouble(), (int)this.mod.blue.getValDouble());
       } 
-      EntityPlayer l_Player = mc.world.loadedEntityList.stream().filter(p_Entity -> p_Entity instanceof EntityPlayer).filter(p_Entity -> (p_Entity != mc.player)).min(Comparator.comparing(p_Entity -> Float.valueOf(mc.player.getDistance(p_Entity)))).orElse(null);
+      EntityPlayer l_Player = (EntityPlayer) mc.world.loadedEntityList.stream().filter(p_Entity -> p_Entity instanceof EntityPlayer).filter(p_Entity -> (p_Entity != mc.player)).min(Comparator.comparing(p_Entity -> Float.valueOf(mc.player.getDistance(p_Entity)))).orElse(null);
       if (l_Player == null) {
         if (this.mod.bgrainbow.getValBoolean()) {
           Gui.drawRect((int)this.x, (int)this.y + 10, (int)this.x + 160, (int)this.y + 110, this.bgtext.getRGB());
