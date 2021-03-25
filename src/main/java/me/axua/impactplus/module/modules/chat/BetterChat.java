@@ -29,7 +29,7 @@ public class BetterChat extends Module {
           if (mc.player == null)
             return; 
           if (this.friendHighlight.getValBoolean() && !event.getMessage().getUnformattedText().contains("<" + mc.player.getName() + ">"))
-            Friends.getFriends().forEach(());
+            Friends.getFriends();
           Style style = event.getMessage().getStyle();
           if (this.nameHighlight.getValBoolean() && !event.getMessage().getUnformattedText().contains("<" + mc.player.getName() + ">") && event.getMessage().getUnformattedText().contains(mc.player.getName()))
             event.getMessage().getStyle().setParentStyle(style.setBold(Boolean.valueOf(true))); 
