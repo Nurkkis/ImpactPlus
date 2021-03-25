@@ -26,10 +26,10 @@ public class NoRender extends Module {
   
   public NoRender() {
     super("NoRender", Module.Category.RENDER, "Prevents rendering some things");
-    this.blockOverlayEventListener = new Listener(event -> {
+    this.blockOverlayEventListener = new Listener<>(event -> {
           if (this.fire.getValBoolean() && event.getOverlayType() == RenderBlockOverlayEvent.OverlayType.FIRE)
             event.setCanceled(true); 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void setup() {

@@ -25,8 +25,8 @@ public class BrownmanClient extends Module {
   
   public void onRender() {
     Gui.drawRect(this.x.getValInt(), this.y.getValInt(), this.x.getValInt() + 162, this.y.getValInt() + 12, -10740224);
-    mc.fontRenderer.drawString("ï½‚ï½’ï½?ï½—ï½Žï½?ï½?ï½Ž " + ChatFormatting.BOLD + "client-b2019.2.0", this.x.getValInt() + 3, this.y.getValInt() + 3, -16777216);
-    mc.fontRenderer.drawString("ï½‚ï½’ï½?ï½—ï½Žï½?ï½?ï½Ž " + ChatFormatting.BOLD + "client-b2019.2.0", this.x.getValInt() + 2, this.y.getValInt() + 2, -1);
+    mc.fontRenderer.drawString("brownman " + ChatFormatting.BOLD + "client-b2019.2.0", this.x.getValInt() + 3, this.y.getValInt() + 3, -16777216);
+    mc.fontRenderer.drawString("brownman " + ChatFormatting.BOLD + "client-b2019.2.0", this.x.getValInt() + 2, this.y.getValInt() + 2, -1);
     mc.fontRenderer.drawStringWithShadow("handtooltip", (this.x.getValInt() + 2), (this.y.getValInt() + 16), -13447886);
     mc.fontRenderer.drawStringWithShadow("peekbypass [drop]", (this.x.getValInt() + 2), (this.y.getValInt() + 26), -13447886);
     mc.fontRenderer.drawStringWithShadow("packetafk", (this.x.getValInt() + 2), (this.y.getValInt() + 36), -13447886);

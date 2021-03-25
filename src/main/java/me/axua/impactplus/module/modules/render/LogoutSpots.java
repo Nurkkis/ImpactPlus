@@ -46,28 +46,28 @@ public class LogoutSpots extends Module {
   public LogoutSpots() {
     super("LogoutSpots", Module.Category.RENDER, "Shows where players log out");
     this.loggedPlayers = new ConcurrentHashMap<>();
-    this.listener1 = new Listener(event -> this.loggedPlayers.forEach(()), new java.util.function.Predicate[0]);
-    this.listener2 = new Listener(event -> {
+    this.listener1 = new Listener<>(event -> {
+    });
+    this.listener2 = new Listener<>(event -> {
           if (mc.world == null)
-            return; 
-          this.lastTickEntities.forEach(());
-        }new java.util.function.Predicate[0]);
-    this.listener3 = new Listener(event -> {
+            return;
+    });
+    this.listener3 = new Listener<>(event -> {
           this.lastTickEntities.clear();
           if (mc.player == null) {
             this.loggedPlayers.clear();
           } else if (!mc.player.isDead) {
             this.loggedPlayers.clear();
           } 
-        }new java.util.function.Predicate[0]);
-    this.listener4 = new Listener(event -> {
+        });
+    this.listener4 = new Listener<>(event -> {
           this.lastTickEntities.clear();
           if (mc.player == null) {
             this.loggedPlayers.clear();
           } else if (!mc.player.isDead) {
             this.loggedPlayers.clear();
           } 
-        }new java.util.function.Predicate[0]);
+        });
   }
   
   public void onUpdate() {
@@ -128,7 +128,7 @@ public class LogoutSpots extends Module {
     boolean isThirdPersonFrontal = ((mc.getRenderManager()).options.thirdPersonView == 2);
     GlStateManager.translate(x, y, z);
     GlStateManager.rotate(-viewerYaw, 0.0F, 1.0F, 0.0F);
-    GlStateManager.rotate((isThirdPersonFrontal ? -1 : true) * viewerPitch, 1.0F, 0.0F, 0.0F);
+    //GlStateManager.rotate((isThirdPersonFrontal ? -1 : true) * viewerPitch, 1.0F, 0.0F, 0.0F);
     GlStateManager.scale(m, m, m);
     FontRenderer fontRendererIn = mc.fontRenderer;
     GlStateManager.scale(-0.025F, -0.025F, 0.025F);

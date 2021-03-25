@@ -57,7 +57,7 @@ public class CsgoESP extends Module {
           GlStateManager.translate(pos.x - (mc.getRenderManager()).renderPosX, pos.y - (mc.getRenderManager()).renderPosY, pos.z - (mc.getRenderManager()).renderPosZ);
           GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
           GlStateManager.rotate(-viewerYaw, 0.0F, 1.0F, 0.0F);
-          GlStateManager.rotate((isThirdPersonFrontal ? -1 : true), 1.0F, 0.0F, 0.0F);
+          //GlStateManager.rotate((isThirdPersonFrontal ? -1 : true), 1.0F, 0.0F, 0.0F);
           GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.5F);
           GL11.glLineWidth(3.0F);
           GL11.glEnable(2848);
